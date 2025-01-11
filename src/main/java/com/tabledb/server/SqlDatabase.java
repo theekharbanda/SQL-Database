@@ -52,7 +52,7 @@ public class SqlDatabase implements DatabaseOperations {
     @Override
     public CompletableFuture<String> insert(String tableName, List<Object> paredValues) {
         return CompletableFuture.supplyAsync(() -> {
-            rwLock.writeLock().lock();
+             rwLock.writeLock().lock();
             if(!tables.containsKey(tableName)){
                 return "TABLE_NOT_FOUND";
             }
