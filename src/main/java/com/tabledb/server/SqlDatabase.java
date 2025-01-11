@@ -37,7 +37,6 @@ public class SqlDatabase implements DatabaseOperations {
     @Override
     public CompletableFuture<String> createTable(String tableName,List<String> ColumnNames, List<String> DataTypes) {
         return CompletableFuture.supplyAsync(() -> {
-
             rwLock.writeLock().lock();
             if(tables.containsKey(tableName)){
                 return "TABLE_EXISTS";
